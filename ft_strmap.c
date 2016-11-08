@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcadiot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 19:30:36 by pcadiot           #+#    #+#             */
-/*   Updated: 2016/11/07 19:30:39 by pcadiot          ###   ########.fr       */
+/*   Created: 2016/11/08 12:42:49 by pcadiot           #+#    #+#             */
+/*   Updated: 2016/11/08 12:42:53 by pcadiot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+char		*ft_strmap(char const *s, char (*f)(char))
 {
-	if (!*ap)
-		return ;
-	free(*ap);
-	*ap = NULL;
+	char	*res_p;
+	int		i;
+
+	res_p = (char *)malloc(ft_strlen(s) + 1);
+	if (res_p == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		res_p[i] = (*f)(((char)s[i]));
+		i++;
+	}
+	res_p[i] = '\0';
+	return (res_p);
 }

@@ -12,8 +12,8 @@
 
 #include "libft.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(char const *str)
 {
-	while (*str)
+	while (*str && ft_isascii(*str))
 		ft_putchar(*str++);
 }
