@@ -11,25 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
- *	size_t		ft_strlcat(char *dst, const char *src, size_t size)
- *	{
- *		size_t	len_dst_base;
- *		size_t	i;
- *		size_t	i_max;
- *
- *		len_dst_base = ft_strlen(dst);
- *		i = 0;
- *		i_max = size - 1 - len_dst_base;
- *		while (src[i] && i < i_max)
- *		{
- *			dst[len_dst_base++] = ((char *)src)[i++];
- *		}
- *		dst[len_dst_base] = '\0';
- *		return (len_dst_base);
- *	}
- *
- */
 
 size_t			ft_strlcat(char *dst, const char *src, size_t size)
 {

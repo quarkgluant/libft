@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcadiot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 14:12:47 by pcadiot           #+#    #+#             */
-/*   Updated: 2016/11/09 14:12:50 by pcadiot          ###   ########.fr       */
+/*   Created: 2016/11/10 15:11:56 by pcadiot           #+#    #+#             */
+/*   Updated: 2016/11/10 15:12:02 by pcadiot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strtrim(char const *s)
 {
-	size_t	len;
-	char	*str;
-	size_t	i;
-	size_t	j;
+	int		len;
+	size_t	start;
+	char	*s_p;
 
-	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	i = 0;
-	j = 0;
-	if ((str = (char *)malloc(sizeof(*str) * len)))
-	{
-		while (s1[i])
-		{
-			str[i] = s1[i];
-			i++;
-		}
-		while (s2[j])
-			str[i++] = s2[j++];
-		str[i] = '\0';
-		return (str);
-	}
-	return (NULL);
+	len = 0;
+	while (s[len] && (s[len] == '\t' || s[len] == ' ' || s[len] == '\n'))
+		len++;
+	start = len;
+	if (start == (size_t)ft_strlen(s))
+		return (ft_strnew(1));
+	len = ft_strlen(s);
+	len--;
+	while (s[len] == ' ' || s[len] == '\t' || s[len] == '\n')
+		len--;
+	len++;
+	if ((s_p = ft_strsub(s, start, len - start)))
+		return (s_p);
+	else
+		return (NULL);
 }

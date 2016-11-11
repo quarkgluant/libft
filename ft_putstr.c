@@ -14,6 +14,6 @@
 
 void	ft_putstr(char const *str)
 {
-	while (*str && ft_isascii(*str))
+	while (*str)
 		ft_putchar(*str++);
 }
