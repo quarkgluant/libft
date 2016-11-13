@@ -66,8 +66,6 @@ char			**ft_strsplit(char const *s, char c);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			*ft_itoa(int n);
-char			*ft_itoa_min_max(int n);
-int				ft_itoa_size(int n);
 void			ft_putendl(char const *s);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);

@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int			ft_itoa_size(int n)
+static	int		ft_itoa_size(int n)
 {
-	int		size;
-	int		neg;
+	int			size;
+	int			neg;
 
 	size = 0;
 	neg = 0;
@@ -37,12 +37,12 @@ int			ft_itoa_size(int n)
 	return (size);
 }
 
-char		*ft_itoa_min_max(int n)
+static	char	*ft_itoa_min_max(int n)
 {
-	char	*str;
-	int		i;
-	int		size;
-	int		neg;
+	char		*str;
+	int			i;
+	int			size;
+	int			neg;
 
 	size = ft_itoa_size(n);
 	neg = (n < 0 ? 1 : 0);
@@ -62,12 +62,12 @@ char		*ft_itoa_min_max(int n)
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
-	char	*str;
-	int		i;
-	int		size;
-	int		neg;
+	char		*str;
+	int			i;
+	int			size;
+	int			neg;
 
 	size = ft_itoa_size(n);
 	neg = (n < 0 ? 1 : 0);
