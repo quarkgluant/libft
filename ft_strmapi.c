@@ -17,16 +17,21 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*res_p;
 	int		i;
 
-	res_p = (char *)malloc(ft_strlen(s) + 1);
-	if (res_p == NULL)
-		return (NULL);
-	i = 0;
-	i = (unsigned int)i;
-	while (s[i])
+	if (s)
 	{
-		res_p[i] = (*f)(i, ((char)s[i]));
-		i++;
+		res_p = (char *)malloc(ft_strlen(s) + 1);
+		if (res_p == NULL)
+			return (NULL);
+		i = 0;
+		i = (unsigned int)i;
+		while (s[i])
+		{
+			res_p[i] = (*f)(i, ((char)s[i]));
+			i++;
+		}
+		res_p[i] = '\0';
+		return (res_p);
 	}
-	res_p[i] = '\0';
+	res_p = NULL;
 	return (res_p);
 }

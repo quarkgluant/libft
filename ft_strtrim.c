@@ -18,19 +18,23 @@ char		*ft_strtrim(char const *s)
 	size_t	start;
 	char	*s_p;
 
-	len = 0;
-	while (s[len] && (s[len] == '\t' || s[len] == ' ' || s[len] == '\n'))
-		len++;
-	start = len;
-	if (start == (size_t)ft_strlen(s))
-		return (ft_strnew(1));
-	len = ft_strlen(s);
-	len--;
-	while (s[len] == ' ' || s[len] == '\t' || s[len] == '\n')
+	if (s)
+	{
+		len = 0;
+		while (s[len] && (s[len] == '\t' || s[len] == ' ' || s[len] == '\n'))
+			len++;
+		start = len;
+		if (start == (size_t)ft_strlen(s))
+			return (ft_strnew(1));
+		len = ft_strlen(s);
 		len--;
-	len++;
-	if ((s_p = ft_strsub(s, start, len - start)))
-		return (s_p);
-	else
-		return (NULL);
+		while (s[len] == ' ' || s[len] == '\t' || s[len] == '\n')
+			len--;
+		len++;
+		if ((s_p = ft_strsub(s, start, len - start)))
+			return (s_p);
+		else
+			return (NULL);
+	}
+	return (NULL);
 }
