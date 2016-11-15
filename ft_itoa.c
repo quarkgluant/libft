@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static	int		ft_itoa_size(int n)
+static	int			ft_itoa_size(int n)
 {
-	int			size;
-	int			neg;
+	int				size;
+	int				neg;
 
 	size = 0;
 	neg = 0;
@@ -37,52 +37,26 @@ static	int		ft_itoa_size(int n)
 	return (size);
 }
 
-static	char	*ft_itoa_min_max(int n)
+char				*ft_itoa(int n)
 {
-	char		*str;
-	int			i;
-	int			size;
-	int			neg;
+	char			*str;
+	int				i;
+	int				size;
+	int				neg;
+	unsigned int	tmp;
 
 	size = ft_itoa_size(n);
 	neg = (n < 0 ? 1 : 0);
 	i = 1;
-	if ((str = (char *)malloc(sizeof(char) * ft_itoa_size(n) + 1)) == NULL)
+	if (!((str = (char *)malloc(sizeof(char) * ft_itoa_size(n) + 1))))
 		return (NULL);
-	n = 2147483647;
-	while (n >= 1)
+	tmp = (n < 0 ? -n : n);
+	if (tmp == 0)
+		str[tmp] = '0';
+	while (tmp >= 1)
 	{
-		str[size - i] = (n % 10) + '0';
-		n /= 10;
-		i++;
-	}
-	*str = '-';
-	str[size - 1] = '8';
-	str[size] = '\0';
-	return (str);
-}
-
-char			*ft_itoa(int n)
-{
-	char		*str;
-	int			i;
-	int			size;
-	int			neg;
-
-	size = ft_itoa_size(n);
-	neg = (n < 0 ? 1 : 0);
-	i = 1;
-	if (n == -2147483648)
-		return (ft_itoa_min_max(-2147483648));
-	if ((str = (char *)malloc(sizeof(char) * ft_itoa_size(n) + 1)) == NULL)
-		return (NULL);
-	n = (n < 0 ? -n : n);
-	if (n == 0)
-		return (str = "0");
-	while (n >= 1)
-	{
-		str[size - i] = (n % 10) + '0';
-		n /= 10;
+		str[size - i] = (tmp % 10) + '0';
+		tmp /= 10;
 		i++;
 	}
 	if (neg)
