@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tab_int_max.c                                   :+:      :+:    :+:   */
+/*   ft_bubble_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcadiot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/16 16:19:44 by pcadiot           #+#    #+#             */
-/*   Updated: 2016/11/16 16:19:49 by pcadiot          ###   ########.fr       */
+/*   Created: 2016/11/17 16:01:13 by pcadiot           #+#    #+#             */
+/*   Updated: 2016/11/17 16:01:32 by pcadiot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_tab_int_max(int *tab, int size)
+void		ft_bubble_sort(int count, char **tab)
 {
-	int		i;
-	int		max;
+	int		j;
+	char	*temp;
 
-	i = 0;
-	max = 0;
-	while (i < size)
+	j = 1;
+	while (j < count)
 	{
-		max = MAX(max, tab[i]);
-		i++;
+		if (ft_strcmp(tab[j], tab[j + 1]) > 0)
+		{
+			temp = tab[j];
+			tab[j] = tab[j + 1];
+			tab[j + 1] = temp;
+			j = 1;
+		}
+		else
+			j++;
 	}
-	return (max);
 }

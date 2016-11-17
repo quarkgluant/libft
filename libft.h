@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# define MAX(A, B) ((A) >= (B) ? (A) : (B))
+# define MIN(A, B) ((A) <= (B) ? (A) : (B))
+# define ABS(A) ((A) >= 0 ? (A) : (-A))
 
 typedef struct	s_list
 {
@@ -97,5 +100,6 @@ void			ft_btree_apply_infix(t_btree *root, void (*applyf)(void *));
 void			ft_btree_apply_suffix(t_btree *root, void (*applyf)(void *));
 int				ft_tab_int_max(int *tab, int size);
 size_t			ft_lstsize(t_list *list);
+void			ft_bubble_sort(int count, char **tab);
 
 #endif
