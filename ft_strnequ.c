@@ -15,16 +15,12 @@
 int			ft_strnequ(char const *s1, char const *s2, size_t n)
 {
 	size_t	i;
-	size_t	len_s1;
-	size_t	len_s2;
 
 	if (n == 0)
 		return (1);
 	if (s1 && s2)
 	{
 		i = 0;
-		len_s1 = ft_strlen(s1);
-		len_s2 = ft_strlen(s2);
 		while (i < n && *s1 && *s2)
 		{
 			if (*s1 != *s2)
